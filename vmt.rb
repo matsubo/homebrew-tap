@@ -5,21 +5,21 @@
 class Vmt < Formula
   desc "Voice Memos transcription CLI"
   homepage "https://github.com/matsubo/voice-memo-stt"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.3.0/voice-memo-stt_darwin_amd64.tar.gz"
-    sha256 "ef318fc3d522c247b6950b4235076209ef608d94c6c4a95f022a880e587aca5f"
+    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.4.0/voice-memo-stt_darwin_amd64.tar.gz"
+    sha256 "38feabfe60b58102eb03fd171322996af7397751e0e9bd7c52d4455b3b9b33a3"
 
     define_method(:install) do
       bin.install "vmt"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.3.0/voice-memo-stt_darwin_arm64.tar.gz"
-    sha256 "a7428de07e817fd06dced7039ce07978eb5cb253f3388f3e7244c96c6feeb3ed"
+    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.4.0/voice-memo-stt_darwin_arm64.tar.gz"
+    sha256 "9e015c6e7bc7ea974c91ab905cfa36d30970880d1993883b5cc31e3c18359eee"
 
     define_method(:install) do
       bin.install "vmt"
