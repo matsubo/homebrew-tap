@@ -5,24 +5,38 @@
 class Vmt < Formula
   desc "Voice Memos transcription CLI"
   homepage "https://github.com/matsubo/voice-memo-stt"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.4.0/voice-memo-stt_darwin_amd64.tar.gz"
-    sha256 "38feabfe60b58102eb03fd171322996af7397751e0e9bd7c52d4455b3b9b33a3"
+    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.5.0/voice-memo-stt_darwin_amd64.tar.gz"
+    sha256 "5ae5cb45db849732561f7ec71e9fcc144b6e7919d807ad8470f5ec330772430b"
 
     define_method(:install) do
       bin.install "vmt"
+      pkgshare.install "alfred-workflow"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.4.0/voice-memo-stt_darwin_arm64.tar.gz"
-    sha256 "9e015c6e7bc7ea974c91ab905cfa36d30970880d1993883b5cc31e3c18359eee"
+    url "https://github.com/matsubo/voice-memo-stt/releases/download/v0.5.0/voice-memo-stt_darwin_arm64.tar.gz"
+    sha256 "6b0a6cd0980a4f6ae8aef414aa3c417feeedb6daf730403612b479b3c734f0dd"
 
     define_method(:install) do
       bin.install "vmt"
+      pkgshare.install "alfred-workflow"
     end
+  end
+
+  def caveats
+    <<~EOS
+      The Alfred workflow is installed to:
+        #{opt_pkgshare}/alfred-workflow
+
+      It is a stable symlink, so it keeps working across upgrades.
+
+      Raycast users: install the extension from the repository instead —
+      https://github.com/matsubo/voice-memo-stt/tree/main/raycast-extension
+    EOS
   end
 end
